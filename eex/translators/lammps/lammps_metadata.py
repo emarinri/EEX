@@ -593,7 +593,8 @@ _operation_table = {
     },
     "Impropers": {
         "size": "impropers",
-        "dl_func": "NYI",
+        "dl_func": "add_impropers",
+        "df_cols": ["improper_index", "term_index", "atom1", "atom2", "atom3", "atom4"],
         "call_type": "single",
     },
 
@@ -656,9 +657,12 @@ _operation_table = {
     },
     "Improper Coeffs": {
         "size": "improper types",
-        "dl_func": "NYI",
+        "dl_func": "add_parameters",
         "call_type": "parameter",
-        # "dl_func": "add_parameters"
+        "args": {
+            "order": 4,
+            "style_keyword": "improper_style"
+        },
     },
 }
 
