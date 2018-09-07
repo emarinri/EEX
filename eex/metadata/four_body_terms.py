@@ -165,7 +165,7 @@ _four_body_functional_forms = {
             "n": "count"
         },
         "description": "This is a cvff improper",
-        "canonical_form": "RB",
+        "canonical_form": "cvff_improper",
     },
     "distance_improper": {
         "form": "K_2*r**2+K_4*r**4",
@@ -187,7 +187,7 @@ _four_body_functional_forms = {
             "C2": "dimensionless",
         },
         "description": "This is a fourier improper",
-        "canonical_form": "RB",
+        "canonical_form": "cvff_improper",
     },
     "harmonic_improper": {
         "form": "K*(chi-chi0)**2",
@@ -239,7 +239,6 @@ for k, v in _four_body_functional_forms.items():
         _inverted_four_body_conversion[v['canonical_form']].append(k)
     else:
         _inverted_four_body_conversion[v['canonical_form']] = [k]
-
 # Add store data
 four_body_metadata["store_name"] = "4body"
 four_body_metadata["store_indices"] = {
