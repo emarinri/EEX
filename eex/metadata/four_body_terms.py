@@ -187,7 +187,7 @@ _four_body_functional_forms = {
             "C2": "dimensionless",
         },
         "description": "This is a fourier improper",
-        "canonical_form": "cvff_improper",
+        "canonical_form": "fourier_improper",
     },
     "harmonic_improper": {
         "form": "K*(chi-chi0)**2",
