@@ -21,7 +21,8 @@ def convert_form(order, coeffs, origin, final):
 
     # TODO temporary solution
     to_canonical = '_' + origin + '_to_' + term_md[origin]["canonical_form"]
-    from_canonical = '_' + term_md[final]["canonical_form"] + '_to_' + final
+
+    from_canonical = '_' + term_md[origin]["canonical_form"] + '_to_' + final
     to_canonical = to_canonical.lower()
     from_canonical = from_canonical.lower()
 
