@@ -17,7 +17,7 @@ def spce_dl(request):
         "test_lammps_read", )
     sim_data = {'units': 'real', 'bond_style': 'harmonic', 'angle_style': 'harmonic', 'dihedral_style': 'opls',
                 'atom_style': 'full'}
-    eex.translators.slammps.read_lammps_data_file(dl, fname, sim_data, blocksize=55)
+    eex.translators.lammps.read_lammps_data_file(dl, fname, sim_data, blocksize=55)
     yield dl
     dl.close()
 
@@ -33,6 +33,7 @@ def benzene(request):
     # yield dl
     # dl.close()
     pass
+
 
 @pytest.fixture(scope="module", params=["HDF5", "Memory"])
 def benzene(request):
