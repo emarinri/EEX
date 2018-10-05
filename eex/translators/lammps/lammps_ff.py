@@ -436,8 +436,8 @@ improper_styles = {
         "parameters": ["K", "d", "n"],
         "units": {
             "K": "[energy]",
-            "d": "[]",
-            "n": "[]"
+            "d": "count",
+            "n": "count"
         },
         "description": "This is a cvff improper"
     },
@@ -450,14 +450,14 @@ improper_styles = {
         },
         "description": "This is a distance improper"
     },
-    "fourier": {
+    "fourier_improper": {
         "form": "K*(C0+C1*cos(omega)+C2*cos(2*omega))",
         "parameters": ["K", "C0", "C1", "C2"],
         "units": {
             "K": "[energy]",
-            "C0": "[]",
-            "C1": "[]",
-            "C2": "[]",
+            "C0": "count",
+            "C1": "count",
+            "C2": "count",
         },
         "description": "This is a fourier improper"
     },
@@ -506,4 +506,6 @@ improper_styles = {
 term_data = {}
 term_data[2] = bond_styles
 term_data[3] = angle_styles
-term_data[4] = dihedral_styles
+term_data[4] = {}
+term_data[4].update(dihedral_styles)
+term_data[4].update(improper_styles)

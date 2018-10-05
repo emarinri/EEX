@@ -1,3 +1,4 @@
+
 """
 Tests for LAMMPS IO
 """
@@ -24,6 +25,19 @@ def spce_dl(request):
         dl, fname, sim_data, blocksize=55)
     yield dl
     dl.close()
+
+
+@pytest.fixture(scope="module", params=["HDF5", "Memory"])
+def benzene(request):
+    #     fname = eex_find_files.get_example_filename("lammps", "cyclic", "data.benzene")
+
+    #     dl = eex.datalayer.DataLayer(
+    #         "test_lammps_read", )
+    #     sim_data = {'units': 'real', 'bond_style': 'harmonic', 'angle_style': 'harmonic', 'dihedral_style': 'opls', 'improper_style': 'cvff', 'atom_style': 'full'}
+    #     eex.translators.lammps.read_lammps_data_file(dl, fname, sim_data, blocksize=55)
+    pass
+    # yield dl
+#     dl.close()
 
 
 def test_lammps_read_data(spce_dl):
@@ -90,6 +104,17 @@ def test_lammps_read_angles(spce_dl):
     angles = dl.get_angles()
     assert angles.shape[0] == 200
     assert np.allclose(np.unique(angles["term_index"]), [1])
+
+
+def test_lammps_read_impropers(benzene):
+    # dl = benzene
+
+    # Check impropers
+    # impropers = dl.get_impropers()
+    # print(impropers)
+    # assert angles.shape[0] == 200
+    # assert np.allclose(np.unique(angles["term_index"]), [1])
+    pass
 
 
 @pytest.mark.parametrize("molecule", ["butane", "propane", "ethane"])

@@ -150,6 +150,10 @@ def read_lammps_data_file(dl, filename, extra_simulation_data, blocksize=110):
                 if dihedral_style not in lmd.lammps_ff.term_data[4]:
                     raise KeyError(
                         "Could not find dihedral style '%s'." % dihedral_style)
+            elif keyword == 'improper_style':
+                improper_style = extra_simulation_data['improper_style']
+                if improper_style not in lmd.lammps_ff.term_data[4]:
+                    raise KeyError("Could not find dihedral style '%s'." % dihedral_style)
             elif keyword == 'atom_style':
                 atom_style = extra_simulation_data['atom_style']
                 if atom_style not in lmd.atom_style:
@@ -191,7 +195,6 @@ def read_lammps_data_file(dl, filename, extra_simulation_data, blocksize=110):
     # these nested dictionaries are
     # ['size', 'dl_func', 'df_cols', 'kwargs', 'call_type']
     op_table = lmd.build_operation_table(extra_simulation_data, sizes_dict)
-
     # Term table is a dictionary with all the metadata for each two
     # three and four body potential functional forms using the lammps
     # metadata file. The units of these functional forms are consistent with
@@ -257,6 +260,7 @@ def read_lammps_data_file(dl, filename, extra_simulation_data, blocksize=110):
             elif op["call_type"] == "parameter":
                 order = op["args"]["order"]
                 fname = op["args"]["style_keyword"]
+                print(fname)
                 cols = term_table[order][fname]["parameters"]
                 data.columns = ["uid"] + cols
                 for idx, row in data.iterrows():
