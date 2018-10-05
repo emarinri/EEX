@@ -13,19 +13,26 @@ from . import eex_find_files
 @pytest.fixture(scope="module", params=["HDF5", "Memory"])
 def spce_dl(request):
     fname = eex_find_files.get_example_filename("lammps", "SPCE", "data.spce")
-    dl = eex.datalayer.DataLayer("test_lammps_read", )
-    sim_data = {
-        'units': 'real',
-        'bond_style': 'harmonic',
-        'angle_style': 'harmonic',
-        'dihedral_style': 'opls',
-        'atom_style': 'full'
-    }
-    eex.translators.lammps.read_lammps_data_file(
-        dl, fname, sim_data, blocksize=55)
+    dl = eex.datalayer.DataLayer(
+        "test_lammps_read", )
+    sim_data = {'units': 'real', 'bond_style': 'harmonic', 'angle_style': 'harmonic', 'dihedral_style': 'opls',
+                'atom_style': 'full'}
+    eex.translators.slammps.read_lammps_data_file(dl, fname, sim_data, blocksize=55)
     yield dl
     dl.close()
 
+
+@pytest.fixture(scope="module", params=["HDF5", "Memory"])
+def benzene(request):
+    # fname = eex_find_files.get_example_filename("lammps", "cyclic", "data.benzene")
+
+    # dl = eex.datalayer.DataLayer(
+    #     "test_lammps_read", )
+    # sim_data = {'units': 'real', 'bond_style': 'harmonic', 'angle_style': 'harmonic', 'dihedral_style': 'opls', 'improper_style': 'cvff', 'atom_style': 'full'}
+    # eex.translators.lammps.read_lammps_data_file(dl, fname, sim_data, blocksize=55)
+    # yield dl
+    # dl.close()
+    pass
 
 @pytest.fixture(scope="module", params=["HDF5", "Memory"])
 def benzene(request):
@@ -108,7 +115,6 @@ def test_lammps_read_angles(spce_dl):
 
 def test_lammps_read_impropers(benzene):
     # dl = benzene
-
     # Check impropers
     # impropers = dl.get_impropers()
     # print(impropers)

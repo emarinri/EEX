@@ -154,6 +154,11 @@ def read_lammps_data_file(dl, filename, extra_simulation_data, blocksize=110):
                 improper_style = extra_simulation_data['improper_style']
                 if improper_style not in lmd.lammps_ff.term_data[4]:
                     raise KeyError("Could not find dihedral style '%s'." % dihedral_style)
+            elif keyword == 'improper_style':
+                improper_style = extra_simulation_data['improper_style']
+                if improper_style not in lmd.lammps_ff.term_data[4]:
+                    raise KeyError("Could not find dihedral style '%s'." % dihedral_style)
+
             elif keyword == 'atom_style':
                 atom_style = extra_simulation_data['atom_style']
                 if atom_style not in lmd.atom_style:
