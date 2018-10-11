@@ -146,7 +146,7 @@ _four_body_functional_forms = {
     #"ring_improper": {},
     #"umbrella_improper": {},
     #"zero_improper": {},
-    "cossq_improper": {
+    "cossq": {
         "form": "0.5*K*(cos(chi-chi0))**2",
         "parameters": ["K", "chi0"],
         "units": {
@@ -156,7 +156,7 @@ _four_body_functional_forms = {
         "description": "This is a cossq improper",
         "canonical_form": "cossq_improper",
     },
-    "cvff_improper": {
+    "cvff": {
         "form": "K*(1+d*cos(n*chi))",
         "parameters": ["K", "d", "n"],
         "units": {
@@ -167,7 +167,7 @@ _four_body_functional_forms = {
         "description": "This is a cvff improper",
         "canonical_form": "cvff_improper",
     },
-    "distance_improper": {
+    "distance": {
         "form": "K_2*r**2+K_4*r**4",
         "parameters": ["K_2", "K_4"],
         "units": {
@@ -177,7 +177,7 @@ _four_body_functional_forms = {
         "description": "This is a distance improper",
         "canonical_form": "distance_improper",
     },
-    "fourier_improper": {
+    "fourier/improper": {
         "form": "K*(C0+C1*cos(omega)+C2*cos(2*omega))",
         "parameters": ["K", "C0", "C1", "C2"],
         "units": {
@@ -189,7 +189,7 @@ _four_body_functional_forms = {
         "description": "This is a fourier improper",
         "canonical_form": "fourier_improper",
     },
-    "harmonic_improper": {
+    "harmonic/improper": {
         "form": "K*(chi-chi0)**2",
         "parameters": ["K", "chi0"],
         "units": {
