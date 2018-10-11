@@ -17,7 +17,7 @@ def sanitize_term_order_name(order):
         return 2
     elif order in [3, "three", "angle", "angles"]:
         return 3
-    elif order in [4, "four", "dihedral", "dihedrals"]:
+    elif order in [4, "four", "dihedral", "dihedrals", "improper", "impropers"]:
         return 4
     else:
         raise KeyError(

@@ -701,7 +701,7 @@ def build_operation_table(extra_simulation_data, size_dict):
         # Supply bond types, angle types, dihedral types
         if ("args" in v) and ("style_keyword" in v["args"]) and (
                 v["args"]["style_keyword"] in [
-                    "bond_style", "angle_style", "dihedral_style"
+                    "bond_style", "angle_style", "dihedral_style", "improper_style",
                 ]):
             if (v["args"]["style_keyword"] in extra_simulation_data.keys()):
                 v["args"]["style_keyword"] = extra_simulation_data[
